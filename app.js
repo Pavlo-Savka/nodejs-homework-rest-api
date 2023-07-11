@@ -1,12 +1,22 @@
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
-
+const fs = require("fs/promises")
+const moment = require("moment")
 const contactsRouter = require('./routes/api/contacts')
+
+const { appendFile } = require('fs')
 
 const app = express()
 
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short'
+
+app.use((req, res, next) => {
+  const { method, url } = req;
+  const date = moment().format("DD-MM-YYYY, hh:mm:ss, a");
+  fs.appendFile('./public/server.log', `\n${method} ${url} ${date}`);
+  next();
+})
 
 app.use(logger(formatsLogger))
 app.use(cors())
@@ -15,11 +25,28 @@ app.use(express.json())
 app.use('/api/contacts', contactsRouter)
 
 app.use((req, res) => {
-  res.status(404).json({ message: 'Not found' })
+  res.status(404).json({ message: 'Page not found' })
 })
 
 app.use((err, req, res, next) => {
-  res.status(500).json({ message: err.message })
+  const { status = 500, message = "Server error" } = err;
+  res.status(status).json({ message, })
 })
 
+
+
+// app.get("/", (req, res) => {
+//   res.send("<h2>Home Page</h2)")
+//   const databaseResponse = null;
+// })
+
+// app.get("/contacts", (req, res) => {
+  // res.json(contactsRouter)
+  //res.send(contactsRouter)
+//   const databaseResponse = null;
+// })
+
 module.exports = app
+
+
+// а тут викликати світчем як в індекс
