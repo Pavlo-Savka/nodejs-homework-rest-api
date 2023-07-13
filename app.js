@@ -3,6 +3,7 @@ const logger = require('morgan')
 const cors = require('cors')
 const fs = require("fs/promises")
 const moment = require("moment")
+require("dotenv").config()
 const contactsRouter = require('./routes/api/contacts')
 
 const { appendFile } = require('fs')
@@ -33,20 +34,4 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message, })
 })
 
-
-
-// app.get("/", (req, res) => {
-//   res.send("<h2>Home Page</h2)")
-//   const databaseResponse = null;
-// })
-
-// app.get("/contacts", (req, res) => {
-  // res.json(contactsRouter)
-  //res.send(contactsRouter)
-//   const databaseResponse = null;
-// })
-
 module.exports = app
-
-
-// а тут викликати світчем як в індекс
