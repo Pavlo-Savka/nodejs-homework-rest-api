@@ -10,15 +10,24 @@ name: {
     },
     email: {
         type: String,
-        required: [true, 'Set email for user'],
+        required: [true, 'Email is required'],
         match: emailRegExp,
         unique: true,
-    },
+  },
+    subscription: {
+    type: String,
+    enum: ["starter", "pro", "business"],
+    default: "starter"
+  },
     password: {
         type: String,
-        required: true,
+        required: [true, "Set password for user"],
         minlendth: 6,
-}
+  },
+  token: {
+    type: String,
+    default: "",
+    }
 }, { versionKey: false, timestamps: true })
 
 userSchema.post("save", handleMongooseError);
