@@ -439,3 +439,6 @@ GET /api/contacts/favorite 16-07-2023, 11:50:24, am
 GET /api/contacts/favorite 16-07-2023, 11:51:56, am
 GET /api/contacts/favorite 16-07-2023, 11:52:22, am
 GET /api/contacts/favorite 16-07-2023, 11:52:43, am
+GET /api/contacts/favorite 16-07-2023, 04:42:35, pm
+GET /api/contacts 16-07-2023, 04:42:48, pm
+GET /api/auth/current 16-07-2023, 04:43:10, pm
