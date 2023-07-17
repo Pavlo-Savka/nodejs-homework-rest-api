@@ -7,23 +7,11 @@ const avatarsDir = path.join(__dirname, "../../", "public", "avatars")
 const updateAvatar = async (req, res, next) => {
     try {
         const { path: tempUpload, originalname } = req.file;
-
-//         Jimp.read(tempUpload, (err, lenna) => {
-//             console.log(lenna)
-//   if (err) throw err;
-//   lenna
-//       .resize(250, 250)
-//       .quality(60)
-//       .write(tempUpload);
-//             console.log(lenna);
-// });
           
-Jimp.read(tempUpload)
+await Jimp.read(tempUpload)
   .then((lenna) => {
     return lenna
-      .cover(250, 250) // resize
-      .quality(60) // set JPEG quality
-      .greyscale() // set greyscale
+      .resize(250, 250)
       .write(tempUpload); // save
   })
   .catch((err) => {
