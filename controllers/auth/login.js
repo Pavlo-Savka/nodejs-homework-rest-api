@@ -19,9 +19,6 @@ id: user._id,
         }
 
         token = jwt.sign(payload, SECRET_KEY, { expiresIn: "23h" });
-        console.log(user._id)
-        console.log(user.id)
-        console.log(payload)
 await User.findByIdAndUpdate(user._id, {token})
         res.json({
             token,

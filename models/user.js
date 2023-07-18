@@ -4,30 +4,34 @@ const joi = require('joi');
 const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 const userSchema = new Schema({
-name: {
-      type: String,
-      required: [true, 'Set name for user'],
-    },
-    email: {
-        type: String,
-        required: [true, 'Email is required'],
-        match: emailRegExp,
-        unique: true,
+  name: {
+    type: String,
+    required: [true, 'Set name for user'],
   },
-    subscription: {
+  email: {
+    type: String,
+    required: [true, 'Email is required'],
+    match: emailRegExp,
+    unique: true,
+  },
+  subscription: {
     type: String,
     enum: ["starter", "pro", "business"],
     default: "starter"
   },
-    password: {
-        type: String,
-        required: [true, "Set password for user"],
-        minlendth: 6,
+  password: {
+    type: String,
+    required: [true, "Set password for user"],
+    minlendth: 6,
   },
   token: {
     type: String,
     default: "",
-    }
+  },
+  avatarURL: {
+    type: String,
+    required: true,
+  }
 }, { versionKey: false, timestamps: true })
 
 userSchema.post("save", handleMongooseError);

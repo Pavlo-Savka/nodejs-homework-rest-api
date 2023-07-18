@@ -1,7 +1,7 @@
 const express = require('express')
 
 const router = express.Router()
-
+const path = require("path")
 const ctrl = require('../../controllers/contacts')
 const { validateBody, isValidId, authenticate } = require("../../middlewares")
 const { addSchema, updateFavoriteSchema } = require("../../models/contact")
@@ -12,7 +12,7 @@ router.get('/', authenticate, ctrl.getAll)
 
 router.get('/:contactId', authenticate, isValidId, ctrl.getById)
 
-router.post('/', authenticate, validateBody(addSchema), ctrl.add)
+//router.post('/', authenticate, validateBody(addSchema), upload.single("avatar"), ctrl.add)
 
 router.delete('/:contactId', authenticate, isValidId, ctrl.delById)
 
