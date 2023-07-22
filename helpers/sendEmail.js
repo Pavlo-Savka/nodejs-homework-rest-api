@@ -12,7 +12,7 @@ const nodemailerConfig = {
         pass: META_PASSWORD
     }
 }
-const transport = noodemailer.createTransport(nodemailerConfig);
+const transport = nodemailer.createTransport(nodemailerConfig);
 
 // const data = {
 //     to: "savka.pavlo@gmail.com",
@@ -23,9 +23,10 @@ const transport = noodemailer.createTransport(nodemailerConfig);
 const sendEmail = async (data) => {
     const email = { ...data, from: "savka.pavlo@meta.ua" };
     await transport.sendMail(email)
-    .then(() => console.log("Email send success"))
+        .then(() => console.log("Verification email sent"))
         .catch(error => console.log(error.message));
+    
     return true
 }
 
-module.exports = sendEmail;
+module.exports =  sendEmail ;
