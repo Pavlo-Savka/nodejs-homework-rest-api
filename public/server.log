@@ -526,3 +526,14 @@ POST /api/auth/register 22-07-2023, 05:13:12, pm
 POST /api/auth/verify 22-07-2023, 05:14:48, pm
 POST /api/auth/verify 22-07-2023, 05:17:28, pm
 GET /api/auth/verify/jMEmHgKhvlMLS9v7KXfkF 22-07-2023, 05:17:44, pm
+POST /api/auth/register 24-07-2023, 11:57:22, pm
+POST /api/auth/login 24-07-2023, 11:58:04, pm
+POST /api/auth/register 25-07-2023, 12:10:53, am
+POST /api/auth/login 25-07-2023, 12:12:08, am
+POST /api/auth/register 25-07-2023, 12:28:57, am
+POST /api/auth/login 25-07-2023, 12:31:08, am
+GET /api/auth/verify/CuOSjhO5ljPIE0V7xOSy7 25-07-2023, 12:31:17, am
+GET /favicon.ico 25-07-2023, 12:31:17, am
+POST /api/auth/login 25-07-2023, 12:31:55, am
+POST /api/auth/logout 25-07-2023, 12:38:33, am
+POST /api/auth/logout 25-07-2023, 12:40:11, am

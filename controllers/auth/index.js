@@ -3,8 +3,8 @@ const login = require("./login")
 const current = require("./current")
 const logout = require("./logout")
 const updateAvatar = require("./updateAvatar")
-const verifyEmail = require("./verifyEmail")
-const resendVerifyEmail = require("./resendVerifyEmail")
+const verifyEmail = require("../../services/email/verifyEmail")
+const resendVerifyEmail = require("../../services/email/resendVerifyEmail")
 
 module.exports = {
     register,

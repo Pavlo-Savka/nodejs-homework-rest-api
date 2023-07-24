@@ -14,12 +14,6 @@ const nodemailerConfig = {
 }
 const transport = nodemailer.createTransport(nodemailerConfig);
 
-// const data = {
-//     to: "savka.pavlo@gmail.com",
-//     subject: "test message",
-//     html: "<p><strong>Test Email</strong> from loocalhost 3000</p>"
-// }
-
 const sendEmail = async (data) => {
     const email = { ...data, from: "savka.pavlo@meta.ua" };
     await transport.sendMail(email)

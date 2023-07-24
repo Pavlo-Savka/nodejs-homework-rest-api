@@ -1,9 +1,10 @@
 const bcrypt = require("bcrypt")
 const { User } = require("../../models/user")
-const { HttpError, sendEmail } = require("../../helpers")
+const { HttpError} = require("../../helpers")
 const gravatar = require("gravatar")
 const { nanoid } = require("nanoid");
 const { BASE_URL } = process.env;
+const emailService = require("../../services/email")
 
 const register = async (req, res, next) => {
     try {
@@ -28,7 +29,7 @@ const register = async (req, res, next) => {
             subject: "Verify email",
             html: `<a target="_blank" href="${BASE_URL}/api/auth/verify/${verificationCode}">Click to verify email</a>`
         }
-        await sendEmail(verifyEmail);
+        await emailService.sendEmail(verifyEmail);
 
     }
     catch (error) {
