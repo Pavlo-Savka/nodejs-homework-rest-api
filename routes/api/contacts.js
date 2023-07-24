@@ -12,8 +12,6 @@ router.get('/', authenticate, ctrl.getAll)
 
 router.get('/:contactId', authenticate, isValidId, ctrl.getById)
 
-//router.post('/', authenticate, validateBody(addSchema), upload.single("avatar"), ctrl.add)
-
 router.delete('/:contactId', authenticate, isValidId, ctrl.delById)
 
 router.put('/:contactId', authenticate, isValidId, validateBody(addSchema), ctrl.updateById)
